@@ -377,11 +377,7 @@ abstract class AbstractFunction
      */
     public function __get($key)
     {
-        if (isset($this->config[$key])) {
-            return $this->config[$key];
-        }
-
-        return null;
+        return $this->config[$key] ?? null;
     }
 
     /**
