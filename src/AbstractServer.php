@@ -148,7 +148,6 @@ abstract class AbstractServer implements Server
      * @deprecated Since 2.7.0; method will be renamed to remove underscore
      *     prefix in 3.0.
      *
-     * @param  array $params
      * @return mixed
      */
     // @codingStandardsIgnoreStart
