@@ -416,7 +416,7 @@
       <code><![CDATA[1]]</code>
     </InvalidScalarArgument>
     <MixedAssignment>
-      <code><![CDATA[$params]]s</code>
+      <code><![CDATA[$params]]</code>
     </MixedAssignment>
     <PossiblyNullArgument>
       <code><![CDATA[var_export($param, 1)]]</code>
