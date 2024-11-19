@@ -322,7 +322,7 @@ abstract class AbstractFunction
             foreach ($paramTags as $paramTag) {
                 $paramTypesTmp[] = $paramTag->getTypes();
                 /** @psalm-suppress RiskyTruthyFalsyComparison*/
-                $paramDesc[]     = $paramTag->getDescription() ? : '';
+                $paramDesc[] = $paramTag->getDescription() ? : '';
             }
         }
 

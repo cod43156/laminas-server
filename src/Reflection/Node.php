@@ -101,8 +101,6 @@ class Node
 
     /**
      * Return an array of all child nodes
-     *
-     * @return array
      */
     public function getChildren(): array
     {
@@ -156,8 +154,6 @@ class Node
      * Retrieves the bottommost nodes of the tree by recursively calling
      * getEndPoints() on all children. If a child is null, it returns the parent
      * as an end point.
-     *
-     * @return array
      */
     public function getEndPoints(): array
     {

@@ -98,7 +98,7 @@ class ReflectionMethod extends AbstractFunction
             $this->getInvokeArguments()
         );
         /** @psalm-suppress MixedArgument */
-        $this->reflection      = new \ReflectionMethod($this->classReflection->getName(), $this->name);
+        $this->reflection = new \ReflectionMethod($this->classReflection->getName(), $this->name);
     }
 
     /**

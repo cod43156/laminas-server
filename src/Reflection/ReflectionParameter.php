@@ -66,7 +66,7 @@ class ReflectionParameter
         $this->reflection = $r;
 
         // Store parameters needed for (un)serialization
-        $this->name         = $r->getName();
+        $this->name = $r->getName();
         /** @psalm-suppress PossiblyInvalidPropertyAssignmentValue */
         $this->functionName = $r->getDeclaringClass()
             ? [$r->getDeclaringClass()->getName(), $r->getDeclaringFunction()->getName()]

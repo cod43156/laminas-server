@@ -23,6 +23,7 @@ use function sprintf;
 
 /**
  * Server methods metadata
+ *
  * @psalm-suppress MissingTemplateParam
  */
 class Definition implements Countable, Iterator
@@ -134,7 +135,6 @@ class Definition implements Countable, Iterator
      * Get a given method definition
      *
      * @param  string $method
-     * @return mixed
      */
     public function getMethod($method): mixed
     {
@@ -209,7 +209,8 @@ class Definition implements Countable, Iterator
     /**
      * Iterator: current item
      *
-     * @return
+     * @psalm-suppress MixedInferredReturnType
+     * @return array
      */
     #[ReturnTypeWillChange]
     public function current()
