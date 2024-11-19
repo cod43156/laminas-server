@@ -23,6 +23,7 @@ use function sprintf;
 
 /**
  * Server methods metadata
+ * @psalm-suppress MissingTemplateParam
  */
 class Definition implements Countable, Iterator
 {
@@ -133,9 +134,9 @@ class Definition implements Countable, Iterator
      * Get a given method definition
      *
      * @param  string $method
-     * @return null|\Laminas\Server\Method\Definition
+     * @return mixed
      */
-    public function getMethod($method)
+    public function getMethod($method): mixed
     {
         if ($this->hasMethod($method)) {
             return $this->methods[$method];
@@ -182,6 +183,7 @@ class Definition implements Countable, Iterator
      * Cast definition to an array
      *
      * @return array
+     * @psalm-suppress MixedReturnTypeCoercion
      */
     public function toArray()
     {
@@ -189,6 +191,7 @@ class Definition implements Countable, Iterator
         foreach ($this->getMethods() as $key => $method) {
             $methods[$key] = $method->toArray();
         }
+        /** @psalm-suppress MixedReturnTypeCoercion */
         return $methods;
     }
 
@@ -206,11 +209,12 @@ class Definition implements Countable, Iterator
     /**
      * Iterator: current item
      *
-     * @return Method\Definition
+     * @return
      */
     #[ReturnTypeWillChange]
     public function current()
     {
+        /** @psalm-suppress MixedReturnStatement */
         return current($this->methods);
     }
 
@@ -233,6 +237,7 @@ class Definition implements Countable, Iterator
     #[ReturnTypeWillChange]
     public function next()
     {
+        /** @psalm-suppress MixedReturnStatement */
         return next($this->methods);
     }
 

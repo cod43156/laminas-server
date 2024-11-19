@@ -46,6 +46,7 @@ class Node
             $this->setParent($parent, true);
         }
 
+        /** @psalm-suppress InvalidReturnStatement */
         return $this;
     }
 
@@ -103,7 +104,7 @@ class Node
      *
      * @return array
      */
-    public function getChildren()
+    public function getChildren(): array
     {
         return $this->children;
     }
@@ -158,7 +159,7 @@ class Node
      *
      * @return array
      */
-    public function getEndPoints()
+    public function getEndPoints(): array
     {
         $endPoints = [];
         if (! $this->hasChildren()) {

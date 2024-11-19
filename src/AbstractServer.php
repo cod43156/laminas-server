@@ -54,12 +54,18 @@ abstract class AbstractServer implements Server
     {
         $callback = new Method\Callback();
         if ($reflection instanceof Reflection\ReflectionMethod) {
+            /** @var string $declaringClass */
+            $declaringClass = $reflection->getDeclaringClass()->getName();
+            /** @var string $methodName */
+            $methodName = $reflection->getName();
             $callback->setType($reflection->isStatic() ? 'static' : 'instance')
-                     ->setClass($reflection->getDeclaringClass()->getName())
-                     ->setMethod($reflection->getName());
+                ->setClass($declaringClass)
+                ->setMethod($methodName);
         } elseif ($reflection instanceof Reflection\ReflectionFunction) {
+            /** @var string $functionName */
+            $functionName = $reflection->getName();
             $callback->setType('function')
-                     ->setFunction($reflection->getName());
+                ->setFunction($functionName);
         }
         return $callback;
     }

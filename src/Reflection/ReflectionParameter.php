@@ -67,6 +67,7 @@ class ReflectionParameter
 
         // Store parameters needed for (un)serialization
         $this->name         = $r->getName();
+        /** @psalm-suppress PossiblyInvalidPropertyAssignmentValue */
         $this->functionName = $r->getDeclaringClass()
             ? [$r->getDeclaringClass()->getName(), $r->getDeclaringFunction()->getName()]
             : $r->getDeclaringFunction()->getName();
@@ -111,6 +112,7 @@ class ReflectionParameter
      */
     public function setType($type)
     {
+        /** @psalm-suppress DocblockTypeContradiction */
         if (! is_string($type) && (null !== $type)) {
             throw new Exception\InvalidArgumentException('Invalid parameter type');
         }
@@ -137,6 +139,7 @@ class ReflectionParameter
      */
     public function setDescription($description)
     {
+        /** @psalm-suppress DocblockTypeContradiction */
         if (! is_string($description) && (null !== $description)) {
             throw new Exception\InvalidArgumentException('Invalid parameter description');
         }
