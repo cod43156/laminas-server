@@ -26,6 +26,8 @@ use const E_NOTICE;
 
 /**
  * \Laminas\Server\Cache: cache server definitions
+ *
+ * @psalm-suppress DeprecatedInterface
  */
 class Cache
 {
@@ -40,13 +42,10 @@ class Cache
      *
      * Returns false on any error (typically, inability to write to file), true
      * on success.
-     *
-     * @param  string $filename
-     * @return bool
      */
-    public static function save($filename, Server $server)
+    public static function save(string $filename, Server $server): bool
     {
-        if (! is_string($filename) || (! file_exists($filename) && ! is_writable(dirname($filename)))) {
+        if (! file_exists($filename) && ! is_writable(dirname($filename))) {
             return false;
         }
 
@@ -152,10 +151,13 @@ class Cache
     private static function createDefinitionFromMethodsDefinition(Definition $methods)
     {
         $definition = new Definition();
+        /** @psalm-suppress MixedAssignment */
         foreach ($methods as $method) {
+            /** @psalm-suppress MixedMethodCall, InvalidMethodCall */
             if (in_array($method->getName(), static::$skipMethods, true)) {
                 continue;
             }
+            /** @psalm-suppress MixedArgument */
             $definition->addMethod($method);
         }
         return $definition;

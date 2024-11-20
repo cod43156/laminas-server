@@ -247,6 +247,7 @@ abstract class AbstractFunction
             $return = new ReflectionReturnValue(array_shift($signature), $this->returnDesc);
             $tmp    = [];
             foreach ($signature as $key => $type) {
+                /** @psalm-suppress PossiblyNullArgument*/
                 $param = new ReflectionParameter(
                     $params[$key],
                     $type,
@@ -280,6 +281,7 @@ abstract class AbstractFunction
             $this->docComment = $function->getDocComment();
         }
 
+        /** @psalm-suppress RiskyTruthyFalsyComparison*/
         $scanner  = new DocBlockReflection($this->docComment ? : '/***/');
         $helpText = $scanner->getLongDescription();
         /** @var ParamTag[] $paramTags */
@@ -319,7 +321,8 @@ abstract class AbstractFunction
             $paramDesc = [];
             foreach ($paramTags as $paramTag) {
                 $paramTypesTmp[] = $paramTag->getTypes();
-                $paramDesc[]     = $paramTag->getDescription() ? : '';
+                /** @psalm-suppress RiskyTruthyFalsyComparison*/
+                $paramDesc[] = $paramTag->getDescription() ? : '';
             }
         }
 
@@ -340,6 +343,7 @@ abstract class AbstractFunction
 
         $paramTypes = [];
         foreach ($paramTypesTmp as $i => $param) {
+            /** @psalm-suppress MixedMethodCall, InvalidArrayOffset */
             if ($parameters[$i]->isOptional()) {
                 array_unshift($param, null);
             }
@@ -377,11 +381,7 @@ abstract class AbstractFunction
      */
     public function __get($key)
     {
-        if (isset($this->config[$key])) {
-            return $this->config[$key];
-        }
-
-        return null;
+        return $this->config[$key] ?? null;
     }
 
     /**
@@ -412,6 +412,7 @@ abstract class AbstractFunction
             return;
         }
 
+        /** @psalm-suppress TypeDoesNotContainType */
         if (! is_string($namespace) || ! preg_match('/[a-z0-9_\.]+/i', $namespace)) {
             throw new Exception\InvalidArgumentException('Invalid namespace');
         }
@@ -463,6 +464,7 @@ abstract class AbstractFunction
      */
     public function getPrototypes()
     {
+        /** @psalm-suppress MixedReturnTypeCoercion */
         return $this->prototypes;
     }
 
@@ -507,9 +509,11 @@ abstract class AbstractFunction
     public function __wakeup()
     {
         if ($this->reflection instanceof PhpReflectionMethod) {
+            /** @psalm-suppress ArgumentTypeCoercion */
             $class            = new PhpReflectionClass($this->class);
             $this->reflection = new PhpReflectionMethod($class->newInstance(), $this->name);
         } else {
+            /** @psalm-suppress ArgumentTypeCoercion */
             $this->reflection = new PhpReflectionFunction($this->name);
         }
     }

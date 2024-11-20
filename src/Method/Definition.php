@@ -54,7 +54,6 @@ class Definition
     /**
      * Set object state from options
      *
-     * @param  array $options
      * @return Definition
      */
     public function setOptions(array $options)
@@ -204,6 +203,7 @@ class Definition
      */
     public function setObject($object)
     {
+        /** @psalm-suppress RedundantCondition */
         if (! is_object($object) && (null !== $object)) {
             throw new Server\Exception\InvalidArgumentException(sprintf(
                 'Invalid object passed to %s',
@@ -227,7 +227,6 @@ class Definition
     /**
      * Set invoke arguments
      *
-     * @param  array $invokeArguments
      * @return Definition
      */
     public function setInvokeArguments(array $invokeArguments)

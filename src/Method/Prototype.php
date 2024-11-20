@@ -88,7 +88,6 @@ class Prototype
     /**
      * Add parameters
      *
-     * @param  array $parameters
      * @return Prototype
      */
     public function addParameters(array $parameters)
@@ -102,7 +101,6 @@ class Prototype
     /**
      * Set parameters
      *
-     * @param  array $parameters
      * @return Prototype
      */
     public function setParameters(array $parameters)
@@ -145,6 +143,7 @@ class Prototype
      */
     public function getParameter($index)
     {
+        /** @psalm-suppress DocblockTypeContradiction */
         if (! is_string($index) && ! is_numeric($index)) {
             return null;
         }
@@ -152,6 +151,7 @@ class Prototype
             $index = $this->parameterNameMap[$index];
         }
         if (array_key_exists($index, $this->parameters)) {
+            /** @psalm-suppress MixedReturnStatement */
             return $this->parameters[$index];
         }
         return null;
@@ -160,7 +160,6 @@ class Prototype
     /**
      * Set object state from array
      *
-     * @param  array $options
      * @return Prototype
      */
     public function setOptions(array $options)

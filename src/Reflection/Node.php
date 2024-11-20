@@ -15,13 +15,6 @@ use function count;
 class Node
 {
     /**
-     * Node value
-     *
-     * @var mixed
-     */
-    protected $value;
-
-    /**
      * Array of child nodes (if any)
      *
      * @var array
@@ -42,13 +35,18 @@ class Node
      * @param Node $parent Optional
      * @return Node
      */
-    public function __construct($value, ?Node $parent = null)
-    {
-        $this->value = $value;
+    public function __construct(
+        /**
+         * Node value
+         */
+        protected $value,
+        ?Node $parent = null
+    ) {
         if (null !== $parent) {
             $this->setParent($parent, true);
         }
 
+        /** @psalm-suppress InvalidReturnStatement */
         return $this;
     }
 
@@ -57,6 +55,7 @@ class Node
      *
      * //phpcs:disable SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly.ReferenceViaFullyQualifiedName
      * //phpcs:disable SlevomatCodingStandard.TypeHints.ParameterTypeHint.UselessAnnotation
+     *
      * @param \Laminas\Server\Reflection\Node $node
      * //phpcs:enable SlevomatCodingStandard.TypeHints.ParameterTypeHint.UselessAnnotation
      * //phpcs:enable SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly.ReferenceViaFullyQualifiedName
@@ -102,10 +101,8 @@ class Node
 
     /**
      * Return an array of all child nodes
-     *
-     * @return array
      */
-    public function getChildren()
+    public function getChildren(): array
     {
         return $this->children;
     }
@@ -157,10 +154,8 @@ class Node
      * Retrieves the bottommost nodes of the tree by recursively calling
      * getEndPoints() on all children. If a child is null, it returns the parent
      * as an end point.
-     *
-     * @return array
      */
-    public function getEndPoints()
+    public function getEndPoints(): array
     {
         $endPoints = [];
         if (! $this->hasChildren()) {

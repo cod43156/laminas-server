@@ -133,6 +133,7 @@ class DefinitionTest extends TestCase
         $this->assertEquals($method['name'], $test['name']);
         $this->assertEquals($method['methodHelp'], $test['methodHelp']);
         $this->assertEquals($method['invokeArguments'], $test['invokeArguments']);
+        /** @psalm-suppress MixedArrayAccess */
         $this->assertEquals($method['prototypes'][0]['returnType'], $test['prototypes'][0]['returnType']);
     }
 
@@ -161,6 +162,7 @@ class DefinitionTest extends TestCase
         $this->assertEquals($method['name'], $test['name']);
         $this->assertEquals($method['methodHelp'], $test['methodHelp']);
         $this->assertEquals($method['invokeArguments'], $test['invokeArguments']);
+        /** @psalm-suppress MixedArrayAccess */
         $this->assertEquals($method['prototypes'][0]['returnType'], $test['prototypes'][0]['returnType']);
     }
 }

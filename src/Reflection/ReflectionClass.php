@@ -117,11 +117,7 @@ class ReflectionClass
      */
     public function __get($key)
     {
-        if (isset($this->config[$key])) {
-            return $this->config[$key];
-        }
-
-        return null;
+        return $this->config[$key] ?? null;
     }
 
     /**
@@ -173,6 +169,7 @@ class ReflectionClass
             return;
         }
 
+        /** @psalm-suppress TypeDoesNotContainType */
         if (! is_string($namespace) || ! preg_match('/[a-z0-9_\.]+/i', $namespace)) {
             throw new Exception\InvalidArgumentException('Invalid namespace');
         }
@@ -190,6 +187,7 @@ class ReflectionClass
      */
     public function __wakeup()
     {
+        /** @psalm-suppress ArgumentTypeCoercion */
         $this->reflection = new PhpReflectionClass($this->name);
     }
 

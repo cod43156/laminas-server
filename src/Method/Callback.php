@@ -50,7 +50,6 @@ class Callback
     /**
      * Set object state from array of options
      *
-     * @param  array $options
      * @return Callback
      */
     public function setOptions(array $options)
@@ -73,8 +72,10 @@ class Callback
     public function setClass($class)
     {
         if (is_object($class)) {
+            /** @psalm-suppress MixedAssignment */
             $class = $class::class;
         }
+        /** @psalm-suppress MixedAssignment */
         $this->class = $class;
         return $this;
     }
