@@ -32,7 +32,6 @@ class Prototype
      */
     public function __construct(ReflectionReturnValue $return, array $params = [])
     {
-        /** @psalm-suppress DeprecatedProperty */
         $this->return = $return;
 
         foreach ($params as $param) {
@@ -51,7 +50,6 @@ class Prototype
      */
     public function getReturnType()
     {
-        /** @psalm-suppress DeprecatedProperty */
         return $this->return->getType();
     }
 
@@ -62,7 +60,6 @@ class Prototype
      */
     public function getReturnValue()
     {
-        /** @psalm-suppress DeprecatedProperty */
         return $this->return;
     }
 

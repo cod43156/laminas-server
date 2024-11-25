@@ -143,7 +143,6 @@ class Prototype
      */
     public function getParameter($index)
     {
-        /** @psalm-suppress DocblockTypeContradiction */
         if (! is_string($index) && ! is_numeric($index)) {
             return null;
         }
@@ -151,7 +150,6 @@ class Prototype
             $index = $this->parameterNameMap[$index];
         }
         if (array_key_exists($index, $this->parameters)) {
-            /** @psalm-suppress MixedReturnStatement */
             return $this->parameters[$index];
         }
         return null;

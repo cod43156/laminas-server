@@ -51,7 +51,6 @@ class Reflection
             throw new InvalidArgumentException('Invalid class or object passed to attachClass()');
         }
 
-        /** @psalm-suppress RiskyTruthyFalsyComparison */
         if ($argv && ! is_array($argv)) {
             throw new InvalidArgumentException('Invalid argv argument passed to reflectClass');
         }

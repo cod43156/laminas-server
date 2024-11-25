@@ -46,7 +46,6 @@ class Node
             $this->setParent($parent, true);
         }
 
-        /** @psalm-suppress InvalidReturnStatement */
         return $this;
     }
 
@@ -55,7 +54,6 @@ class Node
      *
      * //phpcs:disable SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly.ReferenceViaFullyQualifiedName
      * //phpcs:disable SlevomatCodingStandard.TypeHints.ParameterTypeHint.UselessAnnotation
-     *
      * @param \Laminas\Server\Reflection\Node $node
      * //phpcs:enable SlevomatCodingStandard.TypeHints.ParameterTypeHint.UselessAnnotation
      * //phpcs:enable SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly.ReferenceViaFullyQualifiedName
@@ -102,7 +100,7 @@ class Node
     /**
      * Return an array of all child nodes
      */
-    public function getChildren(): array
+    public function getChildren()
     {
         return $this->children;
     }
@@ -155,7 +153,7 @@ class Node
      * getEndPoints() on all children. If a child is null, it returns the parent
      * as an end point.
      */
-    public function getEndPoints(): array
+    public function getEndPoints()
     {
         $endPoints = [];
         if (! $this->hasChildren()) {

@@ -29,7 +29,6 @@ class ReflectionTest extends TestCase
     {
         $this->expectException(Reflection\Exception\InvalidArgumentException::class);
         $this->expectExceptionMessage('Invalid argv argument passed to reflectClass');
-        /** @psalm-suppress InvalidArgument */
         Reflection::reflectClass(TestAsset\ReflectionTestClass::class, 'string');
     }
 
@@ -37,7 +36,6 @@ class ReflectionTest extends TestCase
     {
         $this->expectException(Reflection\Exception\InvalidArgumentException::class);
         $this->expectExceptionMessage('Invalid class or object passed to attachClass');
-        /** @psalm-suppress InvalidArgument */
         Reflection::reflectClass(false);
     }
 
@@ -63,7 +61,6 @@ class ReflectionTest extends TestCase
     {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Invalid function');
-        /** @psalm-suppress InvalidArgument */
         Reflection::reflectFunction(TestAsset\ReflectionTestClass::class, 'string');
     }
 
@@ -71,7 +68,6 @@ class ReflectionTest extends TestCase
     {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Invalid function');
-        /** @psalm-suppress InvalidArgument */
         Reflection::reflectFunction(false);
     }
 
@@ -109,7 +105,6 @@ class ReflectionTest extends TestCase
         $this->expectException(ExceptionInvalidArgumentException::class);
         $this->expectExceptionMessage('argv argument');
         // Suppressing, as the test is intended to verify this
-        /** @psalm-suppress MixedArgument */
         Reflection::reflectFunction('LaminasTest\Server\TestAsset\reflectionTestFunction', $invalidValue);
     }
 

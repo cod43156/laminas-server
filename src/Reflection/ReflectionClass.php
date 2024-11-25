@@ -169,7 +169,6 @@ class ReflectionClass
             return;
         }
 
-        /** @psalm-suppress TypeDoesNotContainType */
         if (! is_string($namespace) || ! preg_match('/[a-z0-9_\.]+/i', $namespace)) {
             throw new Exception\InvalidArgumentException('Invalid namespace');
         }
@@ -187,7 +186,6 @@ class ReflectionClass
      */
     public function __wakeup()
     {
-        /** @psalm-suppress ArgumentTypeCoercion */
         $this->reflection = new PhpReflectionClass($this->name);
     }
 

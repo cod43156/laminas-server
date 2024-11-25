@@ -60,7 +60,6 @@ class ReflectionReturnValue
      */
     public function setType($type)
     {
-        /** @psalm-suppress DocblockTypeContradiction */
         if (! is_string($type) && (null !== $type)) {
             throw new Exception\InvalidArgumentException('Invalid parameter type');
         }
@@ -87,7 +86,6 @@ class ReflectionReturnValue
      */
     public function setDescription($description)
     {
-        /** @psalm-suppress DocblockTypeContradiction */
         if (! is_string($description) && (null !== $description)) {
             throw new Exception\InvalidArgumentException('Invalid parameter description');
         }

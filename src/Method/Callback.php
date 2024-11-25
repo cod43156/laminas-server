@@ -72,10 +72,8 @@ class Callback
     public function setClass($class)
     {
         if (is_object($class)) {
-            /** @psalm-suppress MixedAssignment */
             $class = $class::class;
         }
-        /** @psalm-suppress MixedAssignment */
         $this->class = $class;
         return $this;
     }

@@ -203,7 +203,6 @@ class Definition
      */
     public function setObject($object)
     {
-        /** @psalm-suppress RedundantCondition */
         if (! is_object($object) && (null !== $object)) {
             throw new Server\Exception\InvalidArgumentException(sprintf(
                 'Invalid object passed to %s',

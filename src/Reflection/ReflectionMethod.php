@@ -52,7 +52,6 @@ class ReflectionMethod extends AbstractFunction
         $classNamespace = $class->getNamespace();
 
         // Determine namespace
-        /** @psalm-suppress RiskyTruthyFalsyComparison */
         if (! empty($namespace)) {
             $this->setNamespace($namespace);
         } elseif (! empty($classNamespace)) {
@@ -63,7 +62,6 @@ class ReflectionMethod extends AbstractFunction
         $this->argv = $argv;
 
         // If method call, need to store some info on the class
-        /** @psalm-suppress MixedAssignment */
         $this->class = $class->getName();
         $this->name  = $r->getName();
 
@@ -91,13 +89,12 @@ class ReflectionMethod extends AbstractFunction
      */
     public function __wakeup()
     {
-        /** @psalm-suppress ArgumentTypeCoercion */
         $this->classReflection = new ReflectionClass(
             new \ReflectionClass($this->class),
             $this->getNamespace(),
             $this->getInvokeArguments()
         );
-        /** @psalm-suppress MixedArgument */
+
         $this->reflection = new \ReflectionMethod($this->classReflection->getName(), $this->name);
     }
 
@@ -127,9 +124,7 @@ class ReflectionMethod extends AbstractFunction
         $docCommentList[]  = $this->reflection->getDocComment();
 
         // fetch all doc blocks for method from parent classes
-        /** @psalm-suppress PossiblyInvalidArgument */
         $docCommentFetched = $this->fetchRecursiveDocBlockFromParent($this->classReflection, $currentMethodName);
-        /** @psalm-suppress RiskyTruthyFalsyComparison */
         if ($docCommentFetched) {
             $docCommentList = array_merge($docCommentList, $docCommentFetched);
         }
@@ -154,7 +149,6 @@ class ReflectionMethod extends AbstractFunction
             $docCommentList
         );
 
-        /** @psalm-suppress InvalidArgument */
         return '/**' . implode(PHP_EOL, $normalizedDocCommentList) . '*/';
     }
 
@@ -181,7 +175,6 @@ class ReflectionMethod extends AbstractFunction
         $docCommentLast   = $methodReflection->getDocComment();
         $docComment[]     = $docCommentLast;
         if ($this->isInherit($docCommentLast)) {
-            /** @psalm-suppress RiskyTruthyFalsyComparison */
             if ($docCommentFetched = $this->fetchRecursiveDocBlockFromParent($parentReflectionClass, $methodName)) {
                 $docComment = array_merge($docComment, $docCommentFetched);
             }
