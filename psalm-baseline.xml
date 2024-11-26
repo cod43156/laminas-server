@@ -49,16 +49,8 @@
     </DeprecatedInterface>
     <DocblockTypeContradiction>
       <code><![CDATA[! is_string($filename)]]></code>
+      <code><![CDATA[! is_string($filename)]]></code>
     </DocblockTypeContradiction>
-    <InvalidMethodCall>
-      <code><![CDATA[getName]]></code>
-    </InvalidMethodCall>
-    <MissingParamType>
-      <code><![CDATA[$filename]]></code>
-    </MissingParamType>
-    <MissingReturnType>
-      <code><![CDATA[save]]></code>
-    </MissingReturnType>
     <MixedArgument>
       <code><![CDATA[$dispatchArray]]></code>
     </MixedArgument>
@@ -103,12 +95,14 @@
     </MixedAssignment>
     <MixedInferredReturnType>
       <code><![CDATA[Method\Definition]]></code>
-      <code><![CDATA[array]]></code>
+      <code><![CDATA[Method\Definition]]></code>
+      <code><![CDATA[null|false|\Laminas\Server\Method\Definition]]></code>
     </MixedInferredReturnType>
     <MixedMethodCall>
       <code><![CDATA[toArray]]></code>
     </MixedMethodCall>
     <MixedReturnStatement>
+      <code><![CDATA[$this->methods[$method]]]></code>
       <code><![CDATA[current($this->methods)]]></code>
       <code><![CDATA[current($this->methods)]]></code>
       <code><![CDATA[next($this->methods)]]></code>
@@ -276,10 +270,6 @@
     <InvalidReturnStatement>
       <code><![CDATA[$this]]></code>
     </InvalidReturnStatement>
-    <MissingReturnType>
-      <code><![CDATA[getChildren]]></code>
-      <code><![CDATA[getEndPoints]]></code>
-    </MissingReturnType>
     <MixedArgument>
       <code><![CDATA[$childEndPoints]]></code>
     </MixedArgument>
@@ -454,16 +444,7 @@
       <code><![CDATA[1]]></code>
       <code><![CDATA[1]]></code>
     </InvalidScalarArgument>
-    <MixedArrayAccess>
-      <code><![CDATA[$children[0]]]></code>
-      <code><![CDATA[$children[0]]]></code>
-      <code><![CDATA[$children[0]]]></code>
-    </MixedArrayAccess>
     <MixedAssignment>
-      <code><![CDATA[$children]]></code>
-      <code><![CDATA[$children]]></code>
-      <code><![CDATA[$children]]></code>
-      <code><![CDATA[$children]]></code>
       <code><![CDATA[$endPointsArray[]]]></code>
       <code><![CDATA[$types[]]]></code>
     </MixedAssignment>

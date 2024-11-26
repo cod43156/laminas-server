@@ -40,6 +40,9 @@ class Cache
      *
      * Returns false on any error (typically, inability to write to file), true
      * on success.
+     *
+     * @param  string $filename
+     * @return bool
      */
     public static function save($filename, Server $server)
     {

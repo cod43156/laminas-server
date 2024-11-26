@@ -318,7 +318,7 @@ abstract class AbstractFunction
             $paramDesc = [];
             foreach ($paramTags as $paramTag) {
                 $paramTypesTmp[] = $paramTag->getTypes();
-                $paramDesc[] = $paramTag->getDescription() ? : '';
+                $paramDesc[]     = $paramTag->getDescription() ? : '';
             }
         }
 

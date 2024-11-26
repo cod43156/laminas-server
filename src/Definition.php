@@ -133,8 +133,9 @@ class Definition implements Countable, Iterator
      * Get a given method definition
      *
      * @param  string $method
+     * @return null|false|\Laminas\Server\Method\Definition
      */
-    public function getMethod($method): mixed
+    public function getMethod($method)
     {
         if ($this->hasMethod($method)) {
             return $this->methods[$method];
@@ -206,7 +207,7 @@ class Definition implements Countable, Iterator
     /**
      * Iterator: current item
      *
-     * @return array
+     * @return Method\Definition
      */
     #[ReturnTypeWillChange]
     public function current()

@@ -54,6 +54,7 @@ class Node
      *
      * //phpcs:disable SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly.ReferenceViaFullyQualifiedName
      * //phpcs:disable SlevomatCodingStandard.TypeHints.ParameterTypeHint.UselessAnnotation
+     *
      * @param \Laminas\Server\Reflection\Node $node
      * //phpcs:enable SlevomatCodingStandard.TypeHints.ParameterTypeHint.UselessAnnotation
      * //phpcs:enable SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly.ReferenceViaFullyQualifiedName
@@ -99,6 +100,8 @@ class Node
 
     /**
      * Return an array of all child nodes
+     *
+     * @return array
      */
     public function getChildren()
     {
@@ -152,6 +155,8 @@ class Node
      * Retrieves the bottommost nodes of the tree by recursively calling
      * getEndPoints() on all children. If a child is null, it returns the parent
      * as an end point.
+     *
+     * @return array
      */
     public function getEndPoints()
     {
