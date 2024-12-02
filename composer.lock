@@ -4165,7 +4165,7 @@
                     "dev-master": "5.x-dev",
                     "dev-4.x": "4.x-dev",
                     "dev-3.x": "3.x-dev",
-                    "dev-1.x": "1.x-dev",
+                    "dev-1.x": "1.x-dev"
             },
             "autoload": {
                 "psr-4": {
