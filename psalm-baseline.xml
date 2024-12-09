@@ -494,12 +494,7 @@
     <InvalidArgument>
       <code><![CDATA['string']]></code>
       <code><![CDATA['string']]></code>
-      <code><![CDATA[false]]></code>
-      <code><![CDATA[false]]></code>
     </InvalidArgument>
-    <MixedArgument>
-      <code><![CDATA[$invalidValue]]></code>
-    </MixedArgument>
   </file>
   <file src="test/TestAsset/ReflectionTestClass.php">
     <PossiblyUnusedMethod>
